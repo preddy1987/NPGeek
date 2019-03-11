@@ -115,7 +115,7 @@ namespace Capstone.Web.DAL
         public static List<SelectListItem> GetParkCodeList()
         {
             List<SelectListItem> output = new List<SelectListItem>();
-            string parkCodeSearch = "select distinct parkCode from Park";
+            string parkCodeSearch = "select distinct parkCode, parkName from park";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
