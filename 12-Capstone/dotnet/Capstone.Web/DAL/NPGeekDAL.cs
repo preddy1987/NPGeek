@@ -48,14 +48,14 @@ namespace Capstone.Web.DAL
             return output;
         }
 
-        public Park GetPark(int id)
+        public Park GetPark(string parkCode)
         {
             Park park = new Park();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM park WHERE parkCode = @parkCode", conn);
-                cmd.Parameters.AddWithValue("@parkCode", id);
+                cmd.Parameters.AddWithValue("@parkCode", parkCode);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

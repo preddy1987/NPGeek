@@ -24,9 +24,9 @@ namespace Capstone.Web.Controllers
             return View(dal.GetAllParks());
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(string parkCode)
         {
-            return View();
+            return View(dal.GetPark(parkCode));
         }
 
         public IActionResult Survey()

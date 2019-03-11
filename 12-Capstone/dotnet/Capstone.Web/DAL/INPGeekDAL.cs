@@ -9,7 +9,7 @@ namespace Capstone.Web.DAL
     public interface INPGeekDAL
     {
         List<Park> GetAllParks();
-        Park GetPark(int id);
+        Park GetPark(string ParkCode);
         Forecast GetForecast(string parkCode);
     }
 }
