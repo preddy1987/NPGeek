@@ -7,16 +7,18 @@
 <div class="parkbox">
     @for (int i = 0; i < Model.Count; i++)
     {
-        <div class="pictures"><img src="~/images/parks/@(Model[i].ParkCode).jpg" /></div>
+        <div class="pictures">
+            <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(Model[i].ParkCode)" style="font-size:20px;"><img src="~/images/parks/@(Model[i].ParkCode).jpg" /></a>
+        </div>
         <div class="parkdescription">
             <div class="name">
-            <h2>@Model[i].ParkName</h2>
+                <h2>@Model[i].ParkName</h2>
             </div>
             <div class="description">
-            <p>@Model[i].ParkDescription</p>
+                <p>@Model[i].ParkDescription</p>
             </div>
         </div>
     }
 
-    
+
 </div>
