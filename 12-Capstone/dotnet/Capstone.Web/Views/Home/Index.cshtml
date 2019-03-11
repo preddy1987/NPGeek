@@ -1,21 +1,22 @@
 ﻿@model List<Park>
+<a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="parkgridcontainer">
-    @foreach (var park in Model)
+<div class="parkbox">
+    @for (int i = 0; i < Model.Count; i++)
     {
-        <div class="parkimage">
-            <img src="~/images/parks/@(park.ParkCode).jpg">
-        </div>
+        <div class="pictures"><img src="~/images/parks/@(Model[i].ParkCode).jpg" /></div>
         <div class="parkdescription">
-            <h1><strong>@park.ParkName</strong></h1>
-           
-                <p>
-                    @park.ParkDescription
-                </p>
+            <div class="name">
+            <h2>@Model[i].ParkName</h2>
             </div>
-       
+            <div class="description">
+            <p>@Model[i].ParkDescription</p>
+            </div>
+        </div>
     }
+
+    
 </div>

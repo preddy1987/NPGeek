@@ -36,25 +36,36 @@ body {
     }
 }
 
-.parkgridcontainer{
-    display:grid;
-    grid-row-gap: 100px;
-    grid-column-gap: 50px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "parkimage parkdescription";
+.parkbox{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+
 }
 
-.parkimage img{
-    grid-area: parkimage;
-    display:block;
-    
+.pictures img {
+    /*grid-area: parkimage;*/
+    /*text-align:right;*/
+    width: 500px;
+    float: left;
+    padding-top: 100px;
+    padding-left: 50px;
 }
 
-.parkname{
-    grid-area:parkname;
+.name > h2{
+
+    /*grid-area:parkname;*/
+
+}
+
+.description {
+    /*grid-area:parkdescription;*/
+
+
 }
 
 .parkdescription{
-    grid-area:parkdescription;
-    display:flex;
+    width:600px;
+    padding-top:75px;
+    padding-left:50px;
 }
