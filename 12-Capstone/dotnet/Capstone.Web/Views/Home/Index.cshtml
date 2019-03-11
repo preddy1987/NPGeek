@@ -1,4 +1,21 @@
-﻿@{
+﻿@model List<Park>
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<div class="parkgridcontainer">
+    @foreach (var park in Model)
+    {
+        <div class="parkimage">
+            <img src="~/images/parks/@(park.ParkCode).jpg">
+        </div>
+        <div class="parkdescription">
+            <h1><strong>@park.ParkName</strong></h1>
+           
+                <p>
+                    @park.ParkDescription
+                </p>
+            </div>
+       
+    }
+</div>

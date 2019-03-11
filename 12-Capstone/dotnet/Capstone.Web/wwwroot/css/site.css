@@ -35,3 +35,26 @@ body {
         display: none;
     }
 }
+
+.parkgridcontainer{
+    display:grid;
+    grid-row-gap: 100px;
+    grid-column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "parkimage parkdescription";
+}
+
+.parkimage img{
+    grid-area: parkimage;
+    display:block;
+    
+}
+
+.parkname{
+    grid-area:parkname;
+}
+
+.parkdescription{
+    grid-area:parkdescription;
+    display:flex;
+}
