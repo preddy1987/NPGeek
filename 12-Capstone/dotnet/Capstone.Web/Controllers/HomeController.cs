@@ -24,16 +24,23 @@ namespace Capstone.Web.Controllers
             return View(dal.GetAllParks());
         }
 
-        public IActionResult Detail(string parkCode)
+        public IActionResult Detail(string parkCode = "CVNP")
         {
             return View(dal.GetPark(parkCode));
         }
 
+        [HttpGet]
         public IActionResult Survey()
         {
             return View();
         }
-      
+
+        [HttpPost]
+        public IActionResult Survey(Survey survey)
+        {
+            return View();
+        }
+
         public IActionResult FavPark()
         {
             return View();

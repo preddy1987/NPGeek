@@ -1,7 +1,25 @@
-﻿
+﻿@model Survey
+@using Capstone.Web.DAL
 @{
     ViewData["Title"] = "Survey";
 }
 
-<h2>Survey</h2>
+<form asp-controller="Home" asp-action="Survey" method="post">
 
+    <section class="centeredPanel">
+        <h2><strong>New Survey</strong></h2>
+        <div>
+            <label asp-for="EmailAddress">Your email</label>
+            <input type="text" asp-for="EmailAddress" />
+            <span class="validation" asp-validation-for="EmailAddress"></span>
+        </div>
+        <div>
+            <select asp-for="ParkCode" asp-items="NPGeekDAL.GetParkCodeList()"></select>
+        </div>
+        
+
+        <div class="button">
+            <input type="submit" value="Submit" />
+        </div>
+    </section>
+</form>
