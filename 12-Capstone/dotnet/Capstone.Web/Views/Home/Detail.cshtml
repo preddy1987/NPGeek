@@ -2,15 +2,59 @@
 @{
     ViewData["Title"] = "Detail";
 }
-<img src="~/images/parks/@(Model.ParkCode).jpg">
-<h2>@Model.ParkName</h2>
-<div>
-    @Model.ParkDescription
+<<div class="detailimg">
+    <img src="~/images/parks/@(Model.ParkCode).jpg">
     </div>
-<div>@Model.MilesOfTrail</div>
-<div>@Model.State</div>
-<div>@Model.NumberOfAnimalSpecies</div>
-<div>@Model.YearFounded</div>
-<div>@Model.NumberOfCampsites</div>
-<div>@Model.InspirationalQuote</div>
-<div>@Model.InspirationalQuoteSource</div>
+<div class="detailparkname">
+    <h2>@*(@Model.ParkCode)*@@Model.ParkName</h2>
+</div>
+<ul>
+    <li>
+        <div class="detaildescription">
+            @Model.ParkDescription
+        </div>
+    </li>
+   <li><div class="detailtrail">
+    @Model.MilesOfTrail
+</div></li>
+    <li><div class="detailstate">
+    @Model.State
+</div></li>
+    <li><div class="detailanimals">
+    @Model.NumberOfAnimalSpecies
+</div></li>
+    <li><div class="detailfounded">
+    @Model.YearFounded
+</div></li>
+    <li><div class="detailcampsites">
+    @Model.NumberOfCampsites
+</div></li>
+    <li><div class="detailquote">
+    @Model.InspirationalQuote
+</div></li>
+    <li><div class="detailquotesource">
+    @Model.InspirationalQuoteSource
+</div></li>
+    <li><div class="detailacreage">
+    @Model.Acreage
+</div></li>
+
+    <li><div class="detailelevation">
+    @Model.ElevationInFeet
+</div></li>
+
+    <li>
+        <div class="detailclimate">
+            @Model.Climate
+        </div>
+    </li>
+
+    <li>
+        <div class="detailvisitorcount">
+            @Model.AnnualVisitorCount
+        </div>
+    </li>
+    <li><div class="detailentryfee">
+    @Model.EntryFee
+</div></li>
+</ul>
