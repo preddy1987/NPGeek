@@ -12,13 +12,13 @@ namespace Capstone.Web.DAL
     {
 
         #region Properties and Variables
-        private string connectionString;
+        private static string connectionString;
         #endregion
 
         #region Constructor
-        public NPGeekDAL(string connectionString)
+        public NPGeekDAL(string connString)
         {
-            this.connectionString = connectionString;
+            connectionString = connString;
         }
         #endregion
 
@@ -115,9 +115,9 @@ namespace Capstone.Web.DAL
         public static List<SelectListItem> GetParkCodeList()
         {
             List<SelectListItem> output = new List<SelectListItem>();
-            string parkCodeSearch = "select distinct parkcode from Park";
+            string parkCodeSearch = "select distinct parkCode from Park";
 
-            using (SqlConnection conn = new SqlConnection(/*connectionString*/))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
@@ -126,15 +126,16 @@ namespace Capstone.Web.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    var parkCode = new SelectListItem() { Text = Convert.ToString(reader["Name"]) };
-                    output.Add(parkCode);
+                    var park = new SelectListItem() { Text = Convert.ToString(reader["parkName"]),
+                                                        Value = Convert.ToString(reader["parkCode"]) };
+                    output.Add(park);
                 }
             }
 
             return output;
         }
 
-        public HashSet<SelectListItem> GetAllStates()
+        public static HashSet<SelectListItem> GetAllStates()
         {
             var states = new HashSet<SelectListItem>()
         {
