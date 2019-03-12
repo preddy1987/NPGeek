@@ -1,24 +1,17 @@
-﻿@model List<Park>
+﻿@using Capstone.Web.Models;
+
 <a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="parkbox">
-    @for (int i = 0; i < Model.Count; i++)
-    {
-        <div class="pictures">
-            <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@(Model[i].ParkCode)" style="font-size:20px;"><img src="~/images/parks/@(Model[i].ParkCode).jpg" /></a>
-        </div>
-        <div class="parkdescription">
-            <div class="name">
-                <h2>@Model[i].ParkName</h2>
-            </div>
-            <div class="description">
-                <p>@Model[i].ParkDescription</p>
-            </div>
-        </div>
-    }
-
-
-</div>
+@model ParkList
+@foreach (var park in Model.Parks)
+{
+    string parkImg = park.ParkCode + ".jpg";
+    <div class="parklist">
+        <a href="~/Home/Detail/@park.ParkCode"><img src="~/images/parks/@parkImg"/></a>
+        <a style="text-decoration:none; color: black;" href="~/Home/Detail/@park.ParkCode"><h1>@park.ParkName</h1></a>
+        <div class="description">@park.ParkDescription</div>
+    </div>
+}

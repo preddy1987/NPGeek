@@ -19,9 +19,12 @@ namespace Capstone.Web.Controllers
             this.dal = dal;
         }
 
-        public IActionResult Index()
-        {    
-            return View(dal.GetAllParks());
+        [HttpGet]
+        public ActionResult Index()
+        {
+            ParkList parkList = new ParkList();
+            parkList.Parks.AddRange(dal.GetAllParks());
+            return View("Index", parkList);
         }
 
         public IActionResult Detail(string parkCode = "CVNP")

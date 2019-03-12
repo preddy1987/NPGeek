@@ -36,39 +36,8 @@ body {
     }
 }
 
-.parkbox {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
- 
-}
-
-.pictures img {
-    /*grid-area: parkimage;*/
-    /*text-align:right;*/
-    width: 500px;
-    float: left;
-    padding-top: 100px;
-    padding-left: 50px;
-}
-
-.name > h2{
-
-    /*grid-area:parkname;*/
-
-}
-
-.description {
-    /*grid-area:parkdescription;*/
 
 
-}
-
-.parkdescription{
-    width:600px;
-    padding-top:75px;
-    padding-left:50px;
-}
 
 .detailimg img{
     margin-left:auto;
@@ -78,7 +47,39 @@ body {
   
 }
 
-body {
-    background-image: url("~/images/parks/background.jpg")
-    
+
+
+.parklist {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: thin solid;
 }
+    .parklist img {
+        float: left;
+        padding-right: 15px;
+        width: 40%;
+        height: auto;
+    }
+
+    .parklist h1 {
+        margin-top: 0px;
+    }
+
+    .parklist .description {
+        margin: 0px;
+        font-size:large;
+    }
+
+body {
+    background-image: url("http://hdgifs.com/wp-content/uploads/2017/04/animated-nature.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*.description {
+    background: rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
+}*/
