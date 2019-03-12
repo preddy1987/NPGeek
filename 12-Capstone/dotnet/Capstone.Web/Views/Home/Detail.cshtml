@@ -3,6 +3,7 @@
     ViewData["Title"] = "Detail";
 }
 
+<<<<<<< HEAD
  <div class="detail">
      <div>
          <img src="~/images/parks/@(Model.ParkCode).jpg" />
@@ -32,3 +33,26 @@
      <br />
      <div>@Model.ParkDescription</div>
  </div>
+=======
+    <li><div class="detailelevation">
+    @Model.ElevationInFeet
+</div></li>
+
+    <li>
+        <div class="detailclimate">
+            @Model.Climate
+        </div>
+    </li>
+
+    <li>
+        <div class="detailvisitorcount">
+            @Model.AnnualVisitorCount
+        </div>
+    </li>
+    <li><div class="detailentryfee">
+    @Model.EntryFee
+</div></li>
+</ul>
+
+<partial name="_weather" />
+>>>>>>> 41b3dbd93947523d28d18a713535a050cf4c55fd
