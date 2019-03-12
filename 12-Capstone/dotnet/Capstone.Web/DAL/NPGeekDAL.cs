@@ -88,7 +88,7 @@ namespace Capstone.Web.DAL
 
         }
 
-        public Forecast GetForecast(string parkCode)
+        public static Forecast GetForecast(string parkCode)
         {
             Forecast forecast = new Forecast();
             using (SqlConnection conn = new SqlConnection(connectionString))
