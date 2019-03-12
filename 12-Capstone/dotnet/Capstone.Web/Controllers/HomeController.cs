@@ -47,12 +47,12 @@ namespace Capstone.Web.Controllers
 
             if (!ModelState.IsValid)
             {
-                result = View("Survey_Results");
+                result = View("Survey");
             }
             else
             {
                 dal.SaveNewSurvey(survey);
-                result = RedirectToAction("Survey", "Home");
+                result = RedirectToAction("Survey_Results", "Home");
             }
 
             return result;
@@ -60,7 +60,7 @@ namespace Capstone.Web.Controllers
 
         public IActionResult Survey_Results()
         {
-            return View(dal.GetAllSurveys());
+            return View(dal.GetSurveyResults());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

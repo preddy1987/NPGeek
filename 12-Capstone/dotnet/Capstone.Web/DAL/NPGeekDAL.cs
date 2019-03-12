@@ -214,15 +214,21 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public List<Survey> GetAllSurveys()
+        public List<SurveyResultsViewModel> GetSurveyResults()
         {
-            List<Survey> output = new List<Survey>();
+            List<SurveyResultsViewModel> output = new List<SurveyResultsViewModel>();
 
             //Create a SqlConnection to our database
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from survey_result", connection);
+                string getSurveySQLString = "select Count(survey_result.parkCode)as survey_count," +
+                                            " park.parkName, park.parkCode " +
+                                            "from survey_result " +
+                                            "join park on survey_result.parkCode = park.parkCode " +
+                                            "group by parkName, park.parkCode order by survey_count desc, parkName asc";
+
+                SqlCommand cmd = new SqlCommand(getSurveySQLString, connection);
 
                 // Execute the query to the database
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -231,12 +237,10 @@ namespace Capstone.Web.DAL
                 // and add to the output list
                 while (reader.Read())
                 {
-                    Survey survey = new Survey();
+                    SurveyResultsViewModel survey = new SurveyResultsViewModel();
+                    survey.ParkName = Convert.ToString(reader["parkName"]);
                     survey.ParkCode = Convert.ToString(reader["parkCode"]);
-                    survey.EmailAddress = Convert.ToString(reader["emailAddress"]);
-                    survey.State = Convert.ToString(reader["state"]);
-                    survey.SurveyID = Convert.ToInt32(reader["surveyId"]);
-                    survey.ActivityLevel = Convert.ToString(reader["activityLevel"]);                     
+                    survey.NumberOfSurvey = Convert.ToInt32(reader["survey_count"]);                   
                     output.Add(survey);
                 }
             }
