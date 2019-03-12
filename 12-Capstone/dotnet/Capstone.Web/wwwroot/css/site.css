@@ -75,6 +75,7 @@ body {
     background-image: url("http://hdgifs.com/wp-content/uploads/2017/04/animated-nature.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin-top: 50px;
 }
 
 /*.description {
@@ -83,3 +84,13 @@ body {
     -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
 }*/
+
+footer{
+    opacity:0;
+    text-align:center;
+}
+footer:hover{
+    opacity:1;
+    font-weight:bold;
+   
+}
