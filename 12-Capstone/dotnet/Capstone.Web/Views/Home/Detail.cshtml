@@ -33,12 +33,14 @@
         <div>Annual Visitor Count: @visitors</div>
         <div>Number of Animal Species: @Model.NumberOfAnimalSpecies</div>
 
-        @entryfee= @Model.EntryFee.ToString("C2")
-        @if (Model.EntryFee == 0)
-        {
-            entryfee = "Free!";
+        @{
+            entryfee = @Model.EntryFee.ToString("C2");
+                }
+            @if (Model.EntryFee == 0)
+            {
+                entryfee = "Free!";
 
-        }
+            }
 
         <div>Entry Fee: @entryfee</div>
     </div>
