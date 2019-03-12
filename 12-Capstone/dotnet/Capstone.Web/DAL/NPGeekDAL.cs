@@ -44,8 +44,6 @@ namespace Capstone.Web.DAL
                     output.Add(MapToPark(reader));
                 }
             }
-
-
             return output;
         }
 
@@ -193,6 +191,56 @@ namespace Capstone.Web.DAL
         };
 
             return states;
+        }
+
+        public void SaveNewSurvey(Survey survey)
+        {
+            // Create a new connection object
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Open the connection
+                conn.Open();
+                string saveSurvey = "INSERT into survey_result (parkCode,emailAddress,state,activityLevel)" +
+                    "VALUES (@parCode,@emailAddress,@state,@activityLevel)";
+
+                SqlCommand cmd = new SqlCommand(saveSurvey, conn);
+
+                cmd.Parameters.AddWithValue("@parCode", survey.ParkCode);
+                cmd.Parameters.AddWithValue("@emailAddress", survey.EmailAddress);
+                cmd.Parameters.AddWithValue("@state", survey.State);
+                cmd.Parameters.AddWithValue("@activityLevel", survey.ActivityLevel);
+
+                cmd.ExecuteScalar();
+            }
+        }
+
+        public List<Survey> GetAllSurveys()
+        {
+            List<Survey> output = new List<Survey>();
+
+            //Create a SqlConnection to our database
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("select * from survey_result", connection);
+
+                // Execute the query to the database
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                // The results come back as a SqlDataReader. Loop through each of the rows
+                // and add to the output list
+                while (reader.Read())
+                {
+                    Survey survey = new Survey();
+                    survey.ParkCode = Convert.ToString(reader["parkCode"]);
+                    survey.EmailAddress = Convert.ToString(reader["emailAddress"]);
+                    survey.State = Convert.ToString(reader["state"]);
+                    survey.SurveyID = Convert.ToInt32(reader["surveyId"]);
+                    survey.ActivityLevel = Convert.ToString(reader["activityLevel"]);                     
+                    output.Add(survey);
+                }
+            }
+            return output;
         }
         #endregion
     }

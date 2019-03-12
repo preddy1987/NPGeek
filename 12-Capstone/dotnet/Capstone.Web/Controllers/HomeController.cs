@@ -38,12 +38,26 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public IActionResult Survey(Survey survey)
         {
-            return View();
+            IActionResult result = null;
+
+            TempData["Username"] = survey.SurveyID;
+
+            if (!ModelState.IsValid)
+            {
+                result = View("Survey_Results");
+            }
+            else
+            {
+                dal.SaveNewSurvey(survey);
+                result = RedirectToAction("Survey", "Home");
+            }
+
+            return result;
         }
 
-        public IActionResult FavPark()
+        public IActionResult Survey_Results()
         {
-            return View();
+            return View(dal.GetAllSurveys());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
