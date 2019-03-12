@@ -2,60 +2,33 @@
 @{
     ViewData["Title"] = "Detail";
 }
-<<div class="detailimg">
-    <img src="~/images/parks/@(Model.ParkCode).jpg">
-    </div>
-<div class="detailparkname">
-    <h2>@*(@Model.ParkCode)*@@Model.ParkName</h2>
-</div>
-<ul>
-    <li>
-        <div class="detaildescription">
-            @Model.ParkDescription
-        </div>
-    </li>
-   <li><div class="detailtrail">
-    @Model.MilesOfTrail 
-       
-</div></li>
-    <li><div class="detailstate">
-    @Model.State
-</div></li>
-    <li><div class="detailanimals">
-    @Model.NumberOfAnimalSpecies
-</div></li>
-    <li><div class="detailfounded">
-    @Model.YearFounded
-</div></li>
-    <li><div class="detailcampsites">
-    @Model.NumberOfCampsites
-</div></li>
-    <li><div class="detailquote">
-    @Model.InspirationalQuote
-</div></li>
-    <li><div class="detailquotesource">
-    @Model.InspirationalQuoteSource
-</div></li>
-    <li><div class="detailacreage">
-    @Model.Acreage
-</div></li>
 
-    <li><div class="detailelevation">
-    @Model.ElevationInFeet
-</div></li>
-
-    <li>
-        <div class="detailclimate">
-            @Model.Climate
-        </div>
-    </li>
-
-    <li>
-        <div class="detailvisitorcount">
-            @Model.AnnualVisitorCount
-        </div>
-    </li>
-    <li><div class="detailentryfee">
-    @Model.EntryFee
-</div></li>
-</ul>
+ <div class="detail">
+     <div>
+         <img src="~/images/parks/@(Model.ParkCode).jpg" />
+         <div class="quote">
+             <div>@Model.InspirationalQuote</div>
+             <div>-@Model.InspirationalQuoteSource</div>
+         </div>
+     </div>
+     @{
+         string acreage = (Model.Acreage).ToString();
+         string campsites = (Model.NumberOfCampsites).ToString();
+         string visitors = (Model.AnnualVisitorCount).ToString();
+     }
+     <h1 id="detailname">@Model.ParkName</h1>
+     <h3 id="detailstate">@Model.State</h3>
+     <div class="info">
+         <div>Acreage: @acreage acres</div>
+         <div>Elevation: @Model.ElevationInFeet ft.</div>
+         <div>Miles of Trail: @Model.MilesOfTrail</div>
+         <div>Number of Campsites: @campsites</div>
+         <div>Climate: @Model.Climate</div>
+         <div>Year Founded: @Model.YearFounded</div>
+         <div>Annual Visitor Count: @visitors</div>
+         <div>Number of Animal Species: @Model.NumberOfAnimalSpecies</div>
+         <div>Entry Fee: @Model.EntryFee.ToString("C2")</div>
+     </div>
+     <br />
+     <div>@Model.ParkDescription</div>
+ </div>

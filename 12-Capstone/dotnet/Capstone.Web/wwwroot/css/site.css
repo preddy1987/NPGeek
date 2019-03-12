@@ -1,9 +1,5 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
@@ -23,10 +19,7 @@ body {
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
+
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
@@ -39,21 +32,13 @@ body {
 
 
 
-.detailimg img{
-    margin-left:auto;
-    margin-right:auto;
-    display:flex;
-    width:800px;
-  
-}
-
-
 
 .parklist {
     display: inline-block;
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: thin solid;
+    padding-top:30px;
 }
     .parklist img {
         float: left;
@@ -75,7 +60,8 @@ body {
     background-image: url("http://hdgifs.com/wp-content/uploads/2017/04/animated-nature.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin-top: 50px;
+    margin:0;
+    padding:0;
 }
 
 /*.description {
@@ -93,4 +79,92 @@ footer:hover{
     opacity:1;
     font-weight:bold;
    
+}
+
+h6{
+    font-size:small;
+    opacity:0;
+}
+
+p{
+    text-align:center;
+    font-size:larger;
+    font-weight:bold;
+    
+ 
+}
+
+.header {
+    height: 35%;
+    background-color: rgba(66, 226, 244,.5);
+    padding: 0px;
+}
+
+    .header img {
+        width: 600px;
+        height: auto;
+        opacity: unset;
+    }
+
+.navbar {
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: cadetblue;
+    margin-left: 1px;
+    margin-right: 1px;
+    opacity: .8;
+}
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li {
+        display: inline;
+        float: left;
+        padding: 15px;
+        margin-left: -31px;
+        width: auto;
+    }
+
+    .navbar a {
+        background-color: cadetblue;
+        text-decoration: none;
+        padding: 10px;
+        border-collapse: collapse;
+        color: black;
+    }
+
+.detail img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    margin-bottom: 10px;
+  
+ 
+}
+
+.info {
+    font-size: 12px;
+    text-align:center
+}
+#detailname, #detailstate{
+    text-align:center
+}
+
+.quote {
+    text-align: center;
+    font-style: italic;
+    border-bottom: thin solid;
+    padding-bottom: 15px;
+}
+
+.detail {
+    padding-top:25px;
+  
+
 }
