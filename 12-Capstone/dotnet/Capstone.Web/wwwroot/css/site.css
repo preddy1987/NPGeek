@@ -149,8 +149,9 @@ p{
 }
 
 .info {
-    font-size: 12px;
-    text-align:center
+    font-size: large;
+    text-align:center;
+        font-weight:bold;
 }
 #detailname, #detailstate{
     text-align:center
@@ -165,6 +166,8 @@ p{
 
 .detail {
     padding-top:25px;
-  
+  font-size:large;
+  text-align:center;
 
 }
+

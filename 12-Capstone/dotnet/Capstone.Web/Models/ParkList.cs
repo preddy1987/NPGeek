@@ -7,9 +7,9 @@ namespace Capstone.Web.Models
 {
     public class ParkList
     {
-     
-            public List<Park> Parks = new List<Park>();
-        
+
+        public List<Park> Parks = new List<Park>();
+
     }
 }
 

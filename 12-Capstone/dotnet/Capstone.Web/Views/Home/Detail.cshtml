@@ -3,56 +3,49 @@
     ViewData["Title"] = "Detail";
 }
 
-<<<<<<< HEAD
- <div class="detail">
-     <div>
-         <img src="~/images/parks/@(Model.ParkCode).jpg" />
-         <div class="quote">
-             <div>@Model.InspirationalQuote</div>
-             <div>-@Model.InspirationalQuoteSource</div>
-         </div>
-     </div>
-     @{
-         string acreage = (Model.Acreage).ToString();
-         string campsites = (Model.NumberOfCampsites).ToString();
-         string visitors = (Model.AnnualVisitorCount).ToString();
-     }
-     <h1 id="detailname">@Model.ParkName</h1>
-     <h3 id="detailstate">@Model.State</h3>
-     <div class="info">
-         <div>Acreage: @acreage acres</div>
-         <div>Elevation: @Model.ElevationInFeet ft.</div>
-         <div>Miles of Trail: @Model.MilesOfTrail</div>
-         <div>Number of Campsites: @campsites</div>
-         <div>Climate: @Model.Climate</div>
-         <div>Year Founded: @Model.YearFounded</div>
-         <div>Annual Visitor Count: @visitors</div>
-         <div>Number of Animal Species: @Model.NumberOfAnimalSpecies</div>
-         <div>Entry Fee: @Model.EntryFee.ToString("C2")</div>
-     </div>
-     <br />
-     <div>@Model.ParkDescription</div>
- </div>
-=======
-    <li><div class="detailelevation">
-    @Model.ElevationInFeet
-</div></li>
+@{ 
+    string entryfee = "";
+}
 
-    <li>
-        <div class="detailclimate">
-            @Model.Climate
+    
+<div class="detail">
+    <div>
+        <img src="~/images/parks/@(Model.ParkCode).jpg" />
+        <div class="quote">
+            <div>@Model.InspirationalQuote</div>
+            <div>-@Model.InspirationalQuoteSource</div>
         </div>
-    </li>
+    </div>
+    @{
+        string acreage = (Model.Acreage).ToString();
+        string campsites = (Model.NumberOfCampsites).ToString();
+        string visitors = (Model.AnnualVisitorCount).ToString();
+    }
+    <h1 id="detailname">@Model.ParkName</h1>
+    <h3 id="detailstate">@Model.State</h3>
+    <div class="info">
+        <div>Acreage: @acreage acres</div>
+        <div>Elevation: @Model.ElevationInFeet ft.</div>
+        <div>Miles of Trail: @Model.MilesOfTrail</div>
+        <div>Number of Campsites: @campsites</div>
+        <div>Climate: @Model.Climate</div>
+        <div>Year Founded: @Model.YearFounded</div>
+        <div>Annual Visitor Count: @visitors</div>
+        <div>Number of Animal Species: @Model.NumberOfAnimalSpecies</div>
 
-    <li>
-        <div class="detailvisitorcount">
-            @Model.AnnualVisitorCount
-        </div>
-    </li>
-    <li><div class="detailentryfee">
-    @Model.EntryFee
-</div></li>
-</ul>
+        @entryfee= @Model.EntryFee.ToString("C2")
+        @if (Model.EntryFee == 0)
+        {
+            entryfee = "Free!";
+
+        }
+
+        <div>Entry Fee: @entryfee</div>
+    </div>
+    <br />
+    <div>@Model.ParkDescription</div>
+</div>
+
 
 <partial name="_weather" />
->>>>>>> 41b3dbd93947523d28d18a713535a050cf4c55fd
+
