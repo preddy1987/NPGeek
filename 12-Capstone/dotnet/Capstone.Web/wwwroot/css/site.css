@@ -38,13 +38,15 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: thin solid;
-    padding-top:30px;
+    padding-top: 30px;
+    padding-bottom: 45px;
 }
     .parklist img {
         float: left;
         padding-right: 15px;
         width: 40%;
         height: auto;
+      
     }
 
     .parklist h1 {
@@ -149,8 +151,9 @@ p{
 }
 
 .info {
-    font-size: 12px;
-    text-align:center
+    font-size: large;
+    text-align:center;
+        font-weight:bold;
 }
 #detailname, #detailstate{
     text-align:center
@@ -165,6 +168,8 @@ p{
 
 .detail {
     padding-top:25px;
-  
+  font-size:large;
+  text-align:center;
 
 }
+
