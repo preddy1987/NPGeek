@@ -1,27 +1,21 @@
-﻿@model List<Survey>
+﻿@model List<SurveyResultsViewModel>
 @{
     ViewData["Title"] = "Survey_Results";
 }
 
-<section id="forum-section">
+<section id="survey-section">
 
-    @*@foreach (var survey in Model)
-    {
-        <section>
-            <div>
-                <strong>@survey.</strong>
-            </div>
+    @foreach (var survey in Model)
+            {
+                <section>
+                    <img src="~/images/parks/@(survey.ParkCode).jpg">
+                    <div>
+                        <strong>@survey.ParkName</strong>
+                    </div>
 
-            <div>
-                by @post.Username on @post.PostDate
-            </div>
-
-            <div>
-                @post.Message
-            </div>
+                    <div>
+                        @survey.NumberOfSurvey
+                    </div>
+                </section>
+            }
         </section>
-    }*@
-</section>
-
-    </section>
-
