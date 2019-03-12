@@ -36,11 +36,11 @@ body {
     }
 }
 
-.parkbox{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-
+.parkbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ 
 }
 
 .pictures img {
@@ -68,4 +68,17 @@ body {
     width:600px;
     padding-top:75px;
     padding-left:50px;
+}
+
+.detailimg img{
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    width:800px;
+  
+}
+
+body {
+    background-image: url("~/images/parks/background.jpg")
+    
 }
