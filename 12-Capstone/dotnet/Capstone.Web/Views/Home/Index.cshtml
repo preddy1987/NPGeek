@@ -5,9 +5,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model ParkList
-
-@foreach (var park in Model.Parks)
+@model List<Park>
+@foreach (var park in Model)
 {
     string parkImg = park.ParkCode + ".jpg";
     <div class="parklist">

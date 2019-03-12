@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Capstone.Web.DAL;
 
 namespace Capstone.Web.Models
 {
@@ -22,8 +23,12 @@ namespace Capstone.Web.Models
         public string ParkDescription { get; set; }
         public int EntryFee { get; set; }
         public int NumberOfAnimalSpecies { get; set; }
-
-
-
+        public Forecast Forecast
+        {
+            get
+            {
+              return NPGeekDAL.GetForecast(ParkCode);
+            }
+        }
     }
 }

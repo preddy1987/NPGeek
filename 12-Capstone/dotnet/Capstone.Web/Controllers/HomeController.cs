@@ -22,12 +22,10 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ParkList parkList = new ParkList();
-            parkList.Parks.AddRange(dal.GetAllParks());
-            return View("Index", parkList);
+            return View(dal.GetAllParks());
         }
 
-        public IActionResult Detail(string parkCode = "CVNP")
+        public IActionResult Detail(string parkCode)
         {
             return View(dal.GetPark(parkCode));
         }
