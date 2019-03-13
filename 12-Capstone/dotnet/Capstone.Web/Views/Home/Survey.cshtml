@@ -8,28 +8,31 @@
 
     <section class="centeredPanel">
         <h2><strong>New Survey</strong></h2>
-        <div>
+        <div class="parkselectdiv">
             <label asp-for="ParkCode">Favorite National Park</label>
-            <select asp-for="ParkCode" asp-items="NPGeekDAL.GetParkCodeList()"></select>
+            <div class="parkselect"><select asp-for="ParkCode" asp-items="NPGeekDAL.GetParkCodeList()"></select></div>
         </div>
-        <div>
+        <div class="email">
             <label asp-for="EmailAddress">Your email</label>
-            <input type="text" asp-for="EmailAddress" />
+            <div>  <input type="text" asp-for="EmailAddress" /></div>
             <span class="validation" asp-validation-for="EmailAddress"></span>
         </div>
-        <div>
+        <div class="stateselectdiv">
             <label asp-for="State">State of residence</label>
-            <select asp-for="State" asp-items="NPGeekDAL.GetAllStates()"></select>
+            <div class="stateselect">  <select asp-for="State" asp-items="NPGeekDAL.GetAllStates()"></select></div>
         </div>
-        <div>
-            <label asp-for="ActivityLevel">Activity Level</label>
-            <input type="radio" asp-for="ActivityLevel" value="Inactive" checked/>Inactive
-            <input type="radio" asp-for="ActivityLevel" value="Sedentary" />Sedentary
-            <input type="radio" asp-for="ActivityLevel" value="Active" />Active
-            <input type="radio" asp-for="ActivityLevel" value="Extremely Active" />Extremely Active
+        <div class="surveybuttons">
+           <div><label asp-for="ActivityLevel">Activity Level</label></div> 
+           <div>
+               <div> Inactive <br/> <input type="radio" asp-for="ActivityLevel" value="Inactive" checked /></div>
+               <div>Sedentary <br /><input type="radio" asp-for="ActivityLevel" value="Sedentary" /></div>
+               <div> Active <br /><input type="radio" asp-for="ActivityLevel" value="Active" /></div>
+               <div>Extremely Active <br /><input type="radio" asp-for="ActivityLevel" value="Extremely Active" /></div>
+           </div>
         </div>
         <div class="button">
             <input type="submit" value="Submit" />
         </div>
     </section>
 </form>
+<p class="gototop"><a href="#top">Go to top</a></p>

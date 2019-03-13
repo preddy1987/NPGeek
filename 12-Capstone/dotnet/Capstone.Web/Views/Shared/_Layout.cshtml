@@ -19,6 +19,7 @@
 <body>
 
     <div class="header">
+        <h6 id="top"></h6>
         <img src="~/images/logo.png" />
         <ul class="navbar">
             <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
@@ -80,7 +81,8 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
+   
     @RenderSection("Scripts", required: false)
+    
 </body>
 </html>

@@ -4,18 +4,45 @@
 }
 
 <section id="survey-section">
-
+    @{
+        int rank = 1;
+    }
     @foreach (var survey in Model)
-            {
-                <section>
-                    <img src="~/images/parks/@(survey.ParkCode).jpg">
-                    <div>
-                        <strong>@survey.ParkName</strong>
-                    </div>
+    {
+        <section>
+            <div>
+                <p>
 
-                    <div>
-                        @survey.NumberOfSurvey
-                    </div>
-                </section>
-            }
+                </p>
+            </div>
+            <div class="parksurvey">
+            
+
+                <a href="~/Home/Detail/@survey.ParkCode"><img src="~/images/parks/@(survey.ParkCode).jpg"></a>
+
+                <div>
+                    <a style="text-decoration:none; color: black;" href="~/Home/Detail/@survey.ParkCode"><h1>@survey.ParkName</h1></a>
+                </div>
+
+                <div class="surveycount">
+                    Number of votes: @survey.NumberOfSurvey
+                </div>
+            </div>
+     
         </section>
+      
+    }
+</section>
+<p class="gototop"><a href="#top">Go to top</a></p>
+@*@model ParkList
+
+@foreach (var park in Model.Parks)
+{
+    string parkImg = park.ParkCode + ".jpg";
+    <div class="parklist">
+        <a href="~/Home/Detail/@park.ParkCode"><img src="~/images/parks/@parkImg" /></a>
+        <a style="text-decoration:none; color: black;" href="~/Home/Detail/@park.ParkCode"><h1>@park.ParkName</h1></a>
+        <div class="description">@park.ParkDescription</div>
+    </div>
+}
+<p><a href="#top">Go to top</a></p>*@
