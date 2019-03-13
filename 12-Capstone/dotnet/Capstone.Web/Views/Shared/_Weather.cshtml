@@ -1,6 +1,9 @@
 ﻿@model Park
-@using Capstone.Web.DAL
 
 <h2>5 Day Forecast for @Model.ParkName</h2>
+<div>@Model.Forecast.DailyForecast</div>
+<div>@Model.Forecast.DayOfTheWeek</div>
+<div>@Model.Forecast.HighTemp</div>
+<div>@Model.Forecast.LowTemp</div>
+<div>@Model.Forecast.ParkCode</div>
 
-@*@(Forecast forecast = NPGeekDAL.GetForecast(Model.ParkCode))*@
