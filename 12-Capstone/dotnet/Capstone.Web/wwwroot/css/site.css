@@ -292,4 +292,34 @@ input[type=submit] {
         margin: 0px;
         font-size: large;
     }
+
+.forecast {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: thin solid;
+    padding-top: 30px;
+    padding-bottom: 45px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: auto;
+    background-color: rgba(66, 226, 244,.5);
     
+}
+
+  .forecast ul {
+        list-style:none;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .forecast li {
+      
+       
+    
+        width: auto;
+    }
+    .forecast img{
+      width:50%;
+    }

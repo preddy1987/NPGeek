@@ -1,9 +1,34 @@
 ﻿@model Park
 
-<h2>5 Day Forecast for @Model.ParkName</h2>
-<div>@Model.Forecast.DailyForecast</div>
-<div>@Model.Forecast.DayOfTheWeek</div>
-<div>@Model.Forecast.HighTemp</div>
-<div>@Model.Forecast.LowTemp</div>
-<div>@Model.Forecast.ParkCode</div>
 
+
+
+<h2>5 Day Forecast for @Model.ParkName</h2>
+
+<div class="forecast">
+
+    @{
+        string dailyforecast = Model.Forecast.DailyForecast;
+    }
+ 
+    @if (Model.Forecast.DayOfTheWeek == 1)
+    {
+        <h2>Today</h2>
+    }
+    <ul>
+
+
+        @if (Model.Forecast.DailyForecast == "partly cloudy")
+        {
+            dailyforecast = "partlyCloudy";
+        }
+        <li><div> <img src="~/images/weather/@(dailyforecast).png" /></div></li>
+        <li> <div>@Model.Forecast.DayOfTheWeek</div></li>
+        <li>  <div>@Model.Forecast.HighTemp</div></li>
+        <li>   <div>@Model.Forecast.LowTemp</div></li>
+        <li> <div>@Model.Forecast.ParkCode</div></li>
+    </ul>
+
+</div>
+
+  

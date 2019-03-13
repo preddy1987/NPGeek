@@ -3,11 +3,12 @@
     ViewData["Title"] = "Detail";
 }
 
-@{ 
+@{
     string entryfee = "";
+ 
 }
 
-    
+
 <div class="detail">
     <div>
         <img src="~/images/parks/@(Model.ParkCode).jpg" />
@@ -35,19 +36,24 @@
 
         @{
             entryfee = @Model.EntryFee.ToString("C2");
-                }
-            @if (Model.EntryFee == 0)
-            {
-                entryfee = "Free!";
+        }
+        @if (Model.EntryFee == 0)
+        {
+            entryfee = "Free!";
 
-            }
+        }
 
         <div>Entry Fee: @entryfee</div>
     </div>
     <br />
     <div><p>@Model.ParkDescription</p></div>
 </div>
+__________________________________________________________________________________________________________________________________________________
 
+    <div class="weather">
 
-<partial name="_weather" />
+            <partial name="_weather" />   
+
+    </div>
+
 

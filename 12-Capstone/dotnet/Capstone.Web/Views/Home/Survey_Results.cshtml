@@ -34,15 +34,3 @@
     }
 </section>
 <p class="gototop"><a href="#top">Go to top</a></p>
-@*@model ParkList
-
-@foreach (var park in Model.Parks)
-{
-    string parkImg = park.ParkCode + ".jpg";
-    <div class="parklist">
-        <a href="~/Home/Detail/@park.ParkCode"><img src="~/images/parks/@parkImg" /></a>
-        <a style="text-decoration:none; color: black;" href="~/Home/Detail/@park.ParkCode"><h1>@park.ParkName</h1></a>
-        <div class="description">@park.ParkDescription</div>
-    </div>
-}
-<p><a href="#top">Go to top</a></p>*@
