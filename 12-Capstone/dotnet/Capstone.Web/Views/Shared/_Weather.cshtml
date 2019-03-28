@@ -5,30 +5,54 @@
 
 <h2>5 Day Forecast for @Model.ParkName</h2>
 
+
+
+@{
+    string dailyforecast = Model.Forecast[0].DailyForecast;
+    DateTime today = DateTime.Now;
+    
+}
+
+@foreach (var forecast in Model.Forecast)
+{
+    int daysToAdd = forecast.DayOfTheWeek - 1;
 <div class="forecast">
 
-    @{
-        string dailyforecast = Model.Forecast.DailyForecast;
-    }
- 
-    @if (Model.Forecast.DayOfTheWeek == 1)
+    @if (forecast.DayOfTheWeek == 1)
     {
         <h2>Today</h2>
     }
-    <ul>
+    else
+    {
+        <h2>@(today.AddDays(daysToAdd).DayOfWeek)</h2>
+    }
+
+    @if (forecast.DailyForecast == "partly cloudy")
+    {
+        dailyforecast = "partlyCloudy";
+        <ul>
+            <li><div> <img src="~/images/weather/@(dailyforecast).png" /></div></li>
+            <li><div>Daily Forecast: @forecast.DailyForecast</div></li>
+            <li><div>HIGH: @forecast.HighTemp</div></li>
+            <li><div>LOW: @forecast.LowTemp</div></li>
+        </ul>
+    }
+    else
+    {
+        <ul>
+            <li><div> <img src="~/images/weather/@(forecast.DailyForecast).png" /></div></li>
+            <li><div>Daily Forecast: @forecast.DailyForecast</div></li>
+            <li><div>HIGH: @forecast.HighTemp</div></li>
+            <li><div>LOW: @forecast.LowTemp</div></li>
+        </ul>
+    }
 
 
-        @if (Model.Forecast.DailyForecast == "partly cloudy")
-        {
-            dailyforecast = "partlyCloudy";
-        }
-        <li><div> <img src="~/images/weather/@(dailyforecast).png" /></div></li>
-        <li> <div>@Model.Forecast.DayOfTheWeek</div></li>
-        <li>  <div>@Model.Forecast.HighTemp</div></li>
-        <li>   <div>@Model.Forecast.LowTemp</div></li>
-        <li> <div>@Model.Forecast.ParkCode</div></li>
-    </ul>
 
 </div>
+        }
 
-  
+
+
+
+

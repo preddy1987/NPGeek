@@ -88,18 +88,33 @@ namespace Capstone.Web.DAL
 
         }
 
-        public static Forecast GetForecast(string parkCode)
+        public static List<Forecast> GetAllForecasts(string parkCode)
+        {
+            int dayOfTheWeek = 1;           
+            List<Forecast> output = new List<Forecast>();
+
+            while (dayOfTheWeek <= 5)
+            {
+                output.Add(GetForecast(parkCode, dayOfTheWeek));
+                dayOfTheWeek++;
+            }
+            return output;
+        }
+
+        public static Forecast GetForecast(string parkCode, int dayOfTheWeek)
         {
             Forecast forecast = new Forecast();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM weather WHERE parkCode = @parkCode", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM weather WHERE parkCode = @parkCode and fiveDayForecastValue = @dayOfWeek", conn);
                 cmd.Parameters.AddWithValue("@parkCode", parkCode);
+                cmd.Parameters.AddWithValue("@dayOfWeek", dayOfTheWeek);
 
                 SqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
-                {
+                {                   
                     forecast.ParkCode = Convert.ToString(reader["parkCode"]);
                     forecast.DayOfTheWeek = Convert.ToInt32(reader["fiveDayForecastValue"]);
                     forecast.LowTemp = Convert.ToInt32(reader["low"]);
